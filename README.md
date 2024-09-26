@@ -55,7 +55,7 @@ I'm introducing many things on top of this simulation algorithm:
 The way particles add trail is different compared to 36 points and it can result in different patterns.
 ______________
 
-The compute shader code of my implementation is in bin/data/
+The compute shader code of my implementation is in data/
 
 **computeshader_move.glsl** : Main shader: updates particles, increases a counter on the particle's pixel position.
 
@@ -65,12 +65,14 @@ The compute shader code of my implementation is in bin/data/
 
 **computeshader_setter.glsl** : Just used to reset the counters of the pixels to 0 at each iteration.
 
-### How to compile
+### How to compile & run
 
-[ofxGamepad](https://github.com/Bleuje/ofxGamepad) addon is used (it seems that you should use my fork because of a fix, or maybe just to have same version as me).
-I'm only testing on Linux, and I bet that if there's a problem on other platforms it would be because of this gamepad code.
-
-There is a branch "no-gamepad" without gamepad code (`git checkout no-gamepad`)
+```
+meson setup build
+cd build
+meson compile
+meson test
+```
 
 Mouse and keyboard interaction is explained later below.
 
